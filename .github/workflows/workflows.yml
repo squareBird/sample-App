@@ -18,7 +18,12 @@ jobs:
       with:
         distribution: 'corretto'
         java-version: '18'
+
     - name: Spring boot build Gradle
       run: ./gradlew build
+
+    - name: test
+      run: ls
+
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
